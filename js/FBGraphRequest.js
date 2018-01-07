@@ -18,7 +18,6 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 *
 * @flow
-* @format
 */
 
 'use strict';
@@ -40,7 +39,7 @@ type GraphRequestConfig = {
   /**
    * The access token used by the request.
    */
-  accessToken?: string,
+  accessToken?: string
 };
 type GraphRequestParameters = {[key: string]: Object};
 
@@ -81,7 +80,7 @@ class FBGraphRequest {
    */
   addStringParameter(paramString: string, key: string) {
     if (this.config != null && this.config.parameters != null) {
-      this.config.parameters[key] = {string: paramString};
+      this.config.parameters[key] = { string: paramString };
     }
   }
 }

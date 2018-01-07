@@ -18,9 +18,8 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  * @flow
- * @format
  */
-'use strict';
+ 'use strict';
 
 /**
  * A model for app invites.
@@ -40,11 +39,11 @@ export type AppInviteContent = {
    * This is optional. This can be between 0 and 10 characters long and can contain
    * alphanumeric characters only. To set a promo code, you need to set promo text.
    */
-  promotionCode?: string,
-  /**
+   promotionCode?:string,
+   /**
     * Promotional text to be displayed while sending and receiving the invite.
     * This is optional. This can be between 0 and 80 characters long and can contain
     * alphanumeric and spaces only.
     */
-  promotionText?: string,
+    promotionText?:string,
 };

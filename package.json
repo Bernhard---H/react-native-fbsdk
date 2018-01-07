@@ -1,14 +1,13 @@
 {
   "name": "react-native-fbsdk",
-  "version": "0.6.3",
+  "version": "0.6.1",
   "description": "Facebook SDK support for React Native apps.",
   "main": "./js/index.js",
   "author": {
     "name": "Zhuowen Deng"
   },
   "contributors": {
-    "name": "Chris Hackmann",
-    "name": "Pouya Larjani"
+    "name": "Chris Hackmann"
   },
   "repository": {
     "type": "git",
@@ -25,6 +24,9 @@
     "core"
   ],
   "license": "Facebook Platform License",
+  "peerDependencies": {
+    "react-native": ">=0.44.0"
+  },
   "dependencies": {
     "adm-zip": "^0.4.7",
     "fastfall": "^1.5.1",
@@ -33,9 +35,5 @@
     "progress": "^2.0.0",
     "pump": "^1.0.2",
     "xcode": "^0.9.3"
-  },
-  "peerDependencies": {
-    "react-native": ">=0.44.0",
-    "prop-types": "15.x.x"
   }
 }

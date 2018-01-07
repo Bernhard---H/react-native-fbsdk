@@ -107,7 +107,7 @@ Register sdk package in method `getPackages()`.
 ```java
 private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
     @Override
-    public boolean getUseDeveloperSupport() {
+    protected boolean getUseDeveloperSupport() {
       return BuildConfig.DEBUG;
     }
 

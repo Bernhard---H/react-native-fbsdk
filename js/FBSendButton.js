@@ -18,33 +18,42 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  * @flow
- * @format
  */
 'use strict';
 
 import PropTypes from 'prop-types';
-import * as React from 'react';
-import {requireNativeComponent, StyleSheet, ViewPropTypes} from 'react-native';
+import React from 'react';
+import {
+  requireNativeComponent,
+  StyleSheet,
+  ViewPropTypes,
+} from 'react-native';
 
-import type {ShareContent} from './models/FBShareContent';
+import type { ShareContent } from './models/FBShareContent';
 
-class SendButton extends React.Component<{
-  /**
-   * Content to be shared.
-   */
-  shareContent: ShareContent,
-
-  /**
-   * View style, if any.
-   */
-  style?: any,
-}> {
+class SendButton extends React.Component {
   static defaultProps: {
     style: typeof styles.defaultButtonStyle,
   };
 
+  props: {
+    /**
+     * Content to be shared.
+     */
+    shareContent: ShareContent,
+
+    /**
+     * View style, if any.
+     */
+    style?: any,
+  };
+
   render() {
-    return <RCTFBSendButton {...this.props} />;
+    return (
+      <RCTFBSendButton
+        {...this.props}
+      />
+    );
   }
 }
 
@@ -66,6 +75,9 @@ SendButton.defaultProps = {
   style: styles.defaultButtonStyle,
 };
 
-const RCTFBSendButton = requireNativeComponent('RCTFBSendButton', SendButton);
+const RCTFBSendButton = requireNativeComponent(
+  'RCTFBSendButton',
+  SendButton
+);
 
 module.exports = SendButton;

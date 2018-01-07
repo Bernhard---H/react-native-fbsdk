@@ -18,13 +18,11 @@
 * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 *
 * @flow
-* @format
 */
 
 'use strict';
 
-const NativeGraphRequestManager = require('react-native').NativeModules
-  .FBGraphRequest;
+const NativeGraphRequestManager = require('react-native').NativeModules.FBGraphRequest;
 
 import type GraphRequest from './FBGraphRequest';
 
@@ -38,10 +36,8 @@ function _verifyParameters(request: GraphRequest) {
         continue;
       }
       throw new Error(
-        "Unexpected value for parameter '" +
-          key +
-          "'. Request parameters " +
-          "need to be objects with a 'string' field.",
+        'Unexpected value for parameter \'' + key + '\'. Request parameters ' +
+          'need to be objects with a \'string\' field.'
       );
     }
   }
@@ -72,9 +68,7 @@ class FBGraphRequestManager {
    * Note that invocation of the batch callback does not indicate success of every
    * graph request made, only that the entire batch has finished executing.
    */
-  addBatchCallback(
-    callback: (error: ?Object, result: ?Object) => void,
-  ): FBGraphRequestManager {
+  addBatchCallback(callback: (error: ?Object, result: ?Object) => void): FBGraphRequestManager {
     this.batchCallback = callback;
     return this;
   }

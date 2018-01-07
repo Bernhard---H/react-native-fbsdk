@@ -18,7 +18,6 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  * @flow
- * @format
  */
 'use strict';
 
@@ -31,11 +30,11 @@ type AppEventsFlushBehavior =
    * Flush automatically: periodically (every 15 seconds or after every 100 events), and
    * always at app reactivation. This is the default value.
    */
-  | 'auto'
+  'auto' |
   /**
    * Only flush when AppEventsLogger.flush() is explicitly invoked.
    */
-  | 'explicit_only';
+  'explicity-only';
 type Params = {[key: string]: string | number};
 
 module.exports = {
@@ -71,11 +70,7 @@ module.exports = {
   /**
    * Logs a purchase. See http://en.wikipedia.org/wiki/ISO_4217 for currencyCode.
    */
-  logPurchase(
-    purchaseAmount: number,
-    currencyCode: string,
-    parameters?: ?Params,
-  ) {
+  logPurchase(purchaseAmount: number, currencyCode: string, parameters: ?Object) {
     AppEventsLogger.logPurchase(purchaseAmount, currencyCode, parameters);
   },
 
@@ -94,29 +89,6 @@ module.exports = {
   },
 
   /**
-   * Sets a custom user ID to associate with all app events.
-   * The userID is persisted until it is cleared by passing nil.
-   */
-  setUserID(userID: string | null) {
-    AppEventsLogger.setUserID(userID);
-  },
-
-  /**
-   * Returns user id or null if not set
-   */
-  async getUserID(): Promise<?string> {
-    return await AppEventsLogger.getUserID();
-  },
-
-  /**
-   * Sends a request to update the properties for the current user, set by
-   * setUserID. You must call setUserID before making this call.
-   */
-  updateUserProperties(parameters: Params) {
-    AppEventsLogger.updateUserProperties(parameters);
-  },
-
-  /**
    * For iOS only, sets and sends device token to register the current application for push notifications.
    * @platform ios
    */
@@ -124,11 +96,12 @@ module.exports = {
     AppEventsLogger.setPushNotificationsDeviceToken(deviceToken);
   },
 
-  /**
+   /**
     * For Android only, sets and sends registration id to register the current app for push notifications.
     * @platform Android
     */
   setPushNotificationsRegistrationId(registrationId: string) {
     AppEventsLogger.setPushNotificationsRegistrationId(registrationId);
   },
+
 };
